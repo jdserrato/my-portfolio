@@ -27,7 +27,14 @@ const myProjects = [
   },
 ];
 
-function ProjectCard({ title, description, tech }) {
+interface ProjectProps {
+  title: string;
+  description: string;
+  tech: string[];
+  category: string;
+}
+
+function ProjectCard({ title, description, tech, category }: ProjectProps) {
   return (
    // <div className="group p-6 border border-[#E6E4DD] bg-white hover:border-[#A59D84] transition-all duration-300">
     <div className="group p-6 border-2 border-[#FFD77B] bg-[#E5E0D5] hover:border-[#FFDDAA] transition-all duration-300">
