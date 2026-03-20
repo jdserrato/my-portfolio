@@ -1,65 +1,81 @@
 import Image from "next/image";
 
-export default function Home() {
+const myProjects = [
+  {
+    title: "Atari 2D Game",
+    description: "Insert DOWN THE HILL description here",
+    tech: ["C"],
+    category: "Low Level C",
+  },
+  {
+    title: "Custom Linux Shell",
+    description: "A functional command-line interface handling process forking, piping, and I/O redirection.",
+    tech: ["C", "Unix", "OS Architecture"],
+    category: "Low Level C",
+  },
+  {
+    title: "AI Powered Insurance Portfolio Optimizer",
+    description: "Insert desc here",
+    tech: ["Python"],
+    category: "AI",
+  },
+  {
+    title: "Evolutionary Reinforcement Learning Hunter/Prey Agents",
+    description: "Insert description here",
+    tech: ["Python"],
+    category: "AI",
+  },
+];
+
+function ProjectCard({ title, description, tech }) {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
+   // <div className="group p-6 border border-[#E6E4DD] bg-white hover:border-[#A59D84] transition-all duration-300">
+    <div className="group p-6 border-2 border-[#FFD77B] bg-[#E5E0D5] hover:border-[#FFDDAA] transition-all duration-300">
+      <h3 className="text-xl font-bold mb-2 text-black">{title}</h3>
+      <p className="text-sm opacity-70 mb-4 leading-relaxed">{description}</p>
+      <div className="flex gap-3">
+        {tech.map((item) => (
+          <span key={item} className="text-[10px] uppercase tracking-widest font-bold opacity-40">
+            {item}
+          </span>
+        ))}
+      </div>
     </div>
   );
 }
+
+
+export default function Home() {
+  // A helper function to render a specific category
+  const renderCategory = (categoryName: string) => {
+    return (
+      <div className="mb-20">
+        <h2 className="text-xs uppercase tracking-[0.3em] font-bold opacity-30 mb-8 border-b border-[#2D2D2A]/10 pb-2">
+          {categoryName}
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {myProjects
+            .filter((p) => p.category === categoryName)
+            .map((project) => (
+              <ProjectCard key={project.title} {...project} />
+            ))}
+        </div>
+      </div>
+    );
+  };
+
+  return (
+    <main className="min-h-screen bg-[#FFF1E0] p-8 md:p-24 text-[#2D2D2A]">
+      <header className="mb-20">
+        <h1 className="text-5xl font-bold tracking-tighter mb-4">Juan Diego Serrato</h1>
+        <p className="text-[#A59D84] font-medium italic text-lg">CS Graduate | Systems Enthusiast</p>
+      </header>
+
+      {/* RENDER EACH SECTION */}
+      {renderCategory("Low Level C")}
+      {renderCategory("AI")}
+      {renderCategory("Distributed")}
+    </main>
+  );
+}
+
