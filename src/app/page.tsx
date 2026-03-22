@@ -164,7 +164,7 @@ export default function Home() {
         <h2 className="text-xs uppercase tracking-[0.3em] font-bold opacity-70 mb-8 border-b border-[#2D2D2A]/10 pb-2">
           {categoryName}
         </h2>
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-25">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-25">
           {myProjects
             .filter((p) => p.category === categoryName)
             .map((project) => (
