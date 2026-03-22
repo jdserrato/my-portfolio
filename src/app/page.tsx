@@ -7,10 +7,6 @@ const myProjects = [
     description: (
       <>
       Developed a 2D monochrome interactive game for the Atari ST, focusing on low-level hardware interaction and memory management <br /> <br />
-      <b> Custom Raster Library:</b> Built a standalone C library for plotting pixels, lines, and bitmapped sprites directly to the frame buffer. <br />
-      <b>Manual Hardware Interfacing:</b> Programmed the YM2149 PSG (Programmable Sound Generator) and the MMU video registers by bypassing the operating system. <br />
-      <b>Real-Time Rendering:</b> Implemented Double Buffering and synchronized frame rates with the 70 Hz monitor refresh rate to eliminate flickering. <br />
-      <b>System Architecture:</b> Designed a modular engine featuring an event-driven game loop that handled synchronous clock ticks and asynchronous keyboard input.,
       </>
     ),
     link: "https://github.com/dggzlz/DownTheHill",
@@ -23,12 +19,7 @@ const myProjects = [
     title: "Custom Linux Shell",
     description: (
       <>
-      Quantum Shell is a basic shell made in C. It has the following functionalities: <br /> <br />
-      <b>N-stage pipelining:</b> Supports chaining multiple commands using pipes<br />
-      <b>I/O redirection:</b> Supports Input and Output redirection<br />
-      <b>Command search pathways:</b> Searches system paths for commands, but arguments like file paths still need to be fully specified<br />
-      <b>Built in cd command:</b> Allows changing of directories<br />
-      <b>Basic Signal handling:</b> Ctrl C is ignored for the current shell process. SIGCHLD for proper background process and cleanup.,
+      Quantum Shell is a basic shell made in C
       </>
     ),
     link: "https://github.com/Suya678/shell_project",
@@ -65,10 +56,6 @@ const myProjects = [
     description: (
     <>
       A high-performance, minimalist web application built to showcase multi-disciplinary engineering projects: <br /> <br />
-      <b>Type-Safe Architecture:</b> Implemented with TypeScript and Next.js for robust component logic and data handling. <br />
-      <b>Responsive Systems:</b> Engineered a custom CSS grid that adapts layouts (3:2 vs 16:9) based on project category. <br />
-      <b>Automated Deployment:</b> Integrated a CI/CD pipeline via GitHub and Vercel for instant, version-controlled production updates. <br />
-      <b>Japandi UX:</b> Designed with a focus on "Ma" (negative space) and a 2700K warm-neutral aesthetic to reduce user cognitive load.
     </>
   ),
     tech: ["Next.js", "TypeScript", "React", "Node.js", "Tailwind CSS", "Vercel", "Linux"],
@@ -177,7 +164,7 @@ export default function Home() {
         <h2 className="text-xs uppercase tracking-[0.3em] font-bold opacity-70 mb-8 border-b border-[#2D2D2A]/10 pb-2">
           {categoryName}
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-25">
+        <div className="grid grid-cols-3 md:grid-cols-3 lg:grid-cols-3 gap-25">
           {myProjects
             .filter((p) => p.category === categoryName)
             .map((project) => (
@@ -192,7 +179,7 @@ export default function Home() {
     <main className="min-h-screen bg-[#FFF1E0] p-8 md:p-24 text-[#2D2D2A]">
       <header className="mb-20">
         <h1 className="text-5xl font-bold tracking-tighter mb-4">Juan Diego Serrato</h1>
-        <p className="text-[#A59D84] font-medium italic text-lg">Software Engineer | Fullstack | CS + Minor in Business | Mechanical Engineering Technology </p>
+        <p className="text-[#A59D84] font-medium italic text-lg">Software Engineer | BSc Computer Science | Minor in Business | Mechanical Engineering Technology </p>
       </header>
 
       {/* RENDER EACH SECTION */}
