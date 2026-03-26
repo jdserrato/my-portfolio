@@ -1,5 +1,4 @@
 "use client";
-import { link } from "fs";
 import Image from "next/image";
 import { useState, useEffect } from "react"; //cycle through cad images
 
@@ -30,7 +29,7 @@ const myProjects = [
     docLink: "https://docs.google.com/presentation/d/1tIlFKNOVan_bxdCYJINWNwKpZxLhXXw0XGMH9nmh99M/edit?usp=sharing",
     tech: ["C", "Unix", "Linux", "OS Architecture"],
     category: "Low Level C",
-    imageURL: ["/ChatroomPic/chatroom.png "],
+    imageURL: ["/ChatroomPic/chatroom.png"],
     codeveloper: "co-developer: Depanshu Suyal",
   },
   {
@@ -310,6 +309,48 @@ export default function Home() {
       {renderCategory("Fullstack")}
       {renderCategory("CAD")}
       {renderCategory("Animations")}
+
+
+      <footer className="mt-40 mb-20 border-t border-[#2D2D2A]/10 pt-12">
+  <div className="flex flex-col md:flex-row justify-between items-start gap-12">
+    <div>
+      <h2 className="text-xs uppercase tracking-[0.3em] font-bold opacity-40 mb-6">
+        Contact & Network
+      </h2>
+      <div className="flex flex-col gap-4">
+        <a 
+          href="mailto:serrato.juand@gmail.com?subject= Portfolio Inquiry" 
+          className="text-2xl font-bold tracking-tighter hover:text-[#A59D84] transition-colors"
+        >
+          Let’s build something.
+        </a>
+        <p className="text-sm opacity-50 max-w-xs leading-relaxed">
+          Software Engineer based in Calgary, AB. Focused on building high-performance systems, scalable backend services, and AI-driven optimizations.
+        </p>
+      </div>
+    </div>
+
+    <div className="flex flex-wrap gap-x-12 gap-y-6">
+      <div className="flex flex-col gap-3">
+        <span className="text-[10px] uppercase tracking-widest font-bold opacity-30">Social</span>
+        <a href="https://github.com/jdserrato" target="_blank" rel="noopener noreferrer" className="text-sm font-bold hover:opacity-50 transition-opacity">GitHub</a>
+        <a href="https://www.linkedin.com/in/juan-diego-serrato-1870b2241/" target="_blank" rel="noopener noreferrer" className="text-sm font-bold hover:opacity-50 transition-opacity">LinkedIn</a>
+      </div>
+      
+      <div className="flex flex-col gap-3">
+        <span className="text-[10px] uppercase tracking-widest font-bold opacity-30">Documents</span>
+        <a href="/Serrato_Juan_Resume.pdf" target="_blank" rel="noopener noreferrer" className="text-sm font-bold hover:opacity-50 transition-opacity flex items-center gap-2">
+          Download Resume 
+          <span className="text-[10px] opacity-40">↓</span>
+        </a>
+      </div>
+    </div>
+  </div>
+  
+  <div className="mt-20 text-[10px] uppercase tracking-widest font-bold opacity-20">
+    © 2026 Juan Diego Serrato // Software Engineer
+  </div>
+</footer>
     </main>
   );
 }
