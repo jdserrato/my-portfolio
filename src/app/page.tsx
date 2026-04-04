@@ -92,6 +92,16 @@ const myProjects = [
     category: "Fullstack",
     isLive: true,
   },
+      {
+    title: "Coming soon: Job Tracker Application",
+    description: (
+    <>
+      A full-stack web app for tracking job applications through every stage of the hiring process. Log applications, update statuses, and view stats on your job search progress — all in one place. <br /> <br />
+    </>
+  ),
+    tech: ["Next.js", "TypeScript", "PostgreSQL", "Prisma", "Next.Auth.js", "React", "Node.js", "Tailwind CSS", "Docker", "Vercel", "Linux"],
+    category: "Fullstack",
+  },
   {
     title: "Gallery of Models",
     description: "A gallery of the various CAD models I have created over the years.",
