@@ -73,7 +73,7 @@ const myProjects = [
     category: "Distributed Systems",
   },
       {
-    title: "v4 Peer-to-Peer and Consensus",
+    title: "v4: Peer-to-Peer and Consensus",
     description: "Transitioned to a Peer-to-Peer (P2P) architecture using a Replicated State Machine model. Implemented FIFO-Total Order Broadcast powered by Lamport Logical Clocks and priority queues to maintain absolute consistency across all player replicas.",
     link: "https://github.com/tpell114/word_puzzle_v4",
     tech: ["Java", "P2P", "Distributed Consensus", "Lamport Clocks", "Total Order Broadcast", "Priority Queues"],
@@ -86,7 +86,7 @@ const myProjects = [
     title: "Engineering Portfolio",
     description: (
     <>
-      A minimalist web application built to showcase multi-disciplinary engineering projects: <br /> <br />
+      A minimalist web application built to showcase multi-disciplinary engineering projects <br /> <br />
     </>
   ),
     link: "https://github.com/jdserrato/my-portfolio",
