@@ -1,4 +1,5 @@
 "use client";
+import { link } from "fs";
 import Image from "next/image";
 import { useState, useEffect } from "react"; //cycle through cad images
 
@@ -88,19 +89,24 @@ const myProjects = [
       A minimalist web application built to showcase multi-disciplinary engineering projects: <br /> <br />
     </>
   ),
+    link: "https://github.com/jdserrato/my-portfolio",
+    websiteLink: "https://juanserrato.ca/",
     tech: ["Next.js", "TypeScript", "React", "Node.js", "Tailwind CSS", "Vercel", "Linux"],
     category: "Fullstack",
     isLive: true,
   },
       {
-    title: "Coming soon: Job Tracker Application",
+    title: "Jobsheets",
     description: (
     <>
       A full-stack web app for tracking job applications through every stage of the hiring process. Log applications, update statuses, and view stats on your job search progress — all in one place. <br /> <br />
     </>
   ),
+    link: "https://github.com/jdserrato/jobsheets",
+    websiteLink: "https://jobsheets.ca/",
     tech: ["Next.js", "TypeScript", "PostgreSQL", "Prisma", "Next.Auth.js", "React", "Node.js", "Tailwind CSS", "Docker", "Vercel", "Linux"],
     category: "Fullstack",
+    isLive: true,
   },
   {
     title: "Gallery of Models",
@@ -147,6 +153,7 @@ interface ProjectProps {
   title: string;
   description: React.ReactNode; //allow better formatting for blockey text in description
   link?: string; // Optional field for project link
+  websiteLink?: string; // Optional field for live website link
   docLink?: string; // Optional field for documentation link
   tech: string[];
   category: string;
@@ -156,7 +163,7 @@ interface ProjectProps {
   codeveloper?: string; // Optional field for co-developer name
 }
 
-function ProjectCard({ title, description, link, docLink, tech, category, videoURL, imageURL, isLive, codeveloper }: ProjectProps) {
+function ProjectCard({ title, description, link, websiteLink, docLink, tech, category, videoURL, imageURL, isLive, codeveloper }: ProjectProps) {
   const isAnimation = category === "Animations";
 
   const [currentImageIndex, setCurrentImageIndex] = useState(0); // State to track the current image index for CAD projects
@@ -185,17 +192,28 @@ function ProjectCard({ title, description, link, docLink, tech, category, videoU
     >
       <h3 className="text-xl font-bold mb-2 text-black">{title}</h3> 
 
-
-     {link && (
-      <a 
-        href={link} 
-        target="_blank" 
-        rel="noopener noreferrer"
-        className="mb-4 inline-flex items-center text-[10px] uppercase tracking-[0.2em] font-bold opacity-40 hover:opacity-100 hover:text-[#A59D84] transition-all duration-300"
-      >
-        View Source Code 
-      </a>
-    )}
+    <div className="flex gap-4 mb-4">
+      {link && (
+        <a 
+          href={link} 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="inline-flex items-center text-[10px] uppercase tracking-[0.2em] font-bold opacity-40 hover:opacity-100 hover:text-[#A59D84] transition-all duration-300"
+        >
+          View Source Code 
+        </a>
+      )}
+      {websiteLink && (
+        <a 
+          href={websiteLink} 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="inline-flex items-center text-[10px] uppercase tracking-[0.2em] font-bold opacity-40 hover:opacity-100 hover:text-[#A59D84] transition-all duration-300"
+        >
+          Live Site ↗
+        </a>
+      )}
+    </div>
 
 
       {/* IMAGE CYCLER LOGIC (CAD Gallery) */}
@@ -313,10 +331,10 @@ export default function Home() {
       </header>
 
       {/* RENDER EACH SECTION */}
+      {renderCategory("Fullstack")}
       {renderCategory("Low Level C")}
       {renderCategory("AI")}
       {renderCategory("Distributed Systems")}
-      {renderCategory("Fullstack")}
       {renderCategory("CAD")}
       {renderCategory("Animations")}
 
